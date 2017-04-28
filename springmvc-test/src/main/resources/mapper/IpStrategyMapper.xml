@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.qianshifengyi.springmvc.mapper.IpStrategyMapper">
+  <resultMap id="BaseResultMap" type="pers.qianshifengyi.springmvc.model.IpStrategy">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="ip_type" jdbcType="INTEGER" property="ipType" />
+    <result column="from_ip" jdbcType="VARCHAR" property="fromIp" />
+    <result column="to_ip" jdbcType="VARCHAR" property="toIp" />
+    <result column="forbidden_reason" jdbcType="VARCHAR" property="forbiddenReason" />
+    <result column="forbidden_type" jdbcType="INTEGER" property="forbiddenType" />
+    <result column="forbidden_start_time" jdbcType="TIMESTAMP" property="forbiddenStartTime" />
+    <result column="forbidden_end_time" jdbcType="TIMESTAMP" property="forbiddenEndTime" />
+    <result column="is_enabled" jdbcType="INTEGER" property="isEnabled" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="enabled_by" jdbcType="VARCHAR" property="enabledBy" />
+    <result column="disabled_by" jdbcType="VARCHAR" property="disabledBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, ip, ip_type, from_ip, to_ip, forbidden_reason, forbidden_type, forbidden_start_time, 
+    forbidden_end_time, is_enabled, create_time, create_by, enabled_by, disabled_by
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_ip_strategy
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_ip_strategy
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="pers.qianshifengyi.springmvc.model.IpStrategy">
+    insert into t_ip_strategy (id, ip, ip_type, 
+      from_ip, to_ip, forbidden_reason, 
+      forbidden_type, forbidden_start_time, forbidden_end_time, 
+      is_enabled, create_time, create_by, 
+      enabled_by, disabled_by)
+    values (#{id,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{ipType,jdbcType=INTEGER}, 
+      #{fromIp,jdbcType=VARCHAR}, #{toIp,jdbcType=VARCHAR}, #{forbiddenReason,jdbcType=VARCHAR}, 
+      #{forbiddenType,jdbcType=INTEGER}, #{forbiddenStartTime,jdbcType=TIMESTAMP}, #{forbiddenEndTime,jdbcType=TIMESTAMP}, 
+      #{isEnabled,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, 
+      #{enabledBy,jdbcType=VARCHAR}, #{disabledBy,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="pers.qianshifengyi.springmvc.model.IpStrategy">
+    insert into t_ip_strategy
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="ipType != null">
+        ip_type,
+      </if>
+      <if test="fromIp != null">
+        from_ip,
+      </if>
+      <if test="toIp != null">
+        to_ip,
+      </if>
+      <if test="forbiddenReason != null">
+        forbidden_reason,
+      </if>
+      <if test="forbiddenType != null">
+        forbidden_type,
+      </if>
+      <if test="forbiddenStartTime != null">
+        forbidden_start_time,
+      </if>
+      <if test="forbiddenEndTime != null">
+        forbidden_end_time,
+      </if>
+      <if test="isEnabled != null">
+        is_enabled,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="enabledBy != null">
+        enabled_by,
+      </if>
+      <if test="disabledBy != null">
+        disabled_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="ipType != null">
+        #{ipType,jdbcType=INTEGER},
+      </if>
+      <if test="fromIp != null">
+        #{fromIp,jdbcType=VARCHAR},
+      </if>
+      <if test="toIp != null">
+        #{toIp,jdbcType=VARCHAR},
+      </if>
+      <if test="forbiddenReason != null">
+        #{forbiddenReason,jdbcType=VARCHAR},
+      </if>
+      <if test="forbiddenType != null">
+        #{forbiddenType,jdbcType=INTEGER},
+      </if>
+      <if test="forbiddenStartTime != null">
+        #{forbiddenStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="forbiddenEndTime != null">
+        #{forbiddenEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isEnabled != null">
+        #{isEnabled,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="enabledBy != null">
+        #{enabledBy,jdbcType=VARCHAR},
+      </if>
+      <if test="disabledBy != null">
+        #{disabledBy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pers.qianshifengyi.springmvc.model.IpStrategy">
+    update t_ip_strategy
+    <set>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="ipType != null">
+        ip_type = #{ipType,jdbcType=INTEGER},
+      </if>
+      <if test="fromIp != null">
+        from_ip = #{fromIp,jdbcType=VARCHAR},
+      </if>
+      <if test="toIp != null">
+        to_ip = #{toIp,jdbcType=VARCHAR},
+      </if>
+      <if test="forbiddenReason != null">
+        forbidden_reason = #{forbiddenReason,jdbcType=VARCHAR},
+      </if>
+      <if test="forbiddenType != null">
+        forbidden_type = #{forbiddenType,jdbcType=INTEGER},
+      </if>
+      <if test="forbiddenStartTime != null">
+        forbidden_start_time = #{forbiddenStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="forbiddenEndTime != null">
+        forbidden_end_time = #{forbiddenEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isEnabled != null">
+        is_enabled = #{isEnabled,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="enabledBy != null">
+        enabled_by = #{enabledBy,jdbcType=VARCHAR},
+      </if>
+      <if test="disabledBy != null">
+        disabled_by = #{disabledBy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pers.qianshifengyi.springmvc.model.IpStrategy">
+    update t_ip_strategy
+    set ip = #{ip,jdbcType=VARCHAR},
+      ip_type = #{ipType,jdbcType=INTEGER},
+      from_ip = #{fromIp,jdbcType=VARCHAR},
+      to_ip = #{toIp,jdbcType=VARCHAR},
+      forbidden_reason = #{forbiddenReason,jdbcType=VARCHAR},
+      forbidden_type = #{forbiddenType,jdbcType=INTEGER},
+      forbidden_start_time = #{forbiddenStartTime,jdbcType=TIMESTAMP},
+      forbidden_end_time = #{forbiddenEndTime,jdbcType=TIMESTAMP},
+      is_enabled = #{isEnabled,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      enabled_by = #{enabledBy,jdbcType=VARCHAR},
+      disabled_by = #{disabledBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getAllDisabledIps" resultType="String">
+    select
+    ip
+    from t_ip_strategy
+    where ip_type = 0
+    and is_enabled = 1
+  </select>
+
+</mapper>
