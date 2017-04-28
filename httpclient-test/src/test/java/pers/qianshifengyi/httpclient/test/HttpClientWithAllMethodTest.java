@@ -38,7 +38,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * Created by zhangshan193 on 17/4/28.
+ */
 public class HttpClientWithAllMethodTest {
 
     private CloseableHttpClient httpclient = null;
