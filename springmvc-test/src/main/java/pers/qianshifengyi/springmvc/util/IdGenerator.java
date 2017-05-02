@@ -3,7 +3,7 @@ package pers.qianshifengyi.springmvc.util;
 import java.util.UUID;
 
 /**
- * Created by zhangshan193 on 17/4/20.
+ * Created by zhangshan on 17/4/20.
  */
 public class IdGenerator {
 

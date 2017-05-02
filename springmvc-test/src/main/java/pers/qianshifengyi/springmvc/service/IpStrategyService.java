@@ -5,7 +5,7 @@ import pers.qianshifengyi.springmvc.model.IpStrategy;
 import java.util.List;
 
 /**
- * Created by zhangshan193 on 17/4/20.
+ * Created by zhangshan on 17/4/20.
  */
 public interface IpStrategyService {
 

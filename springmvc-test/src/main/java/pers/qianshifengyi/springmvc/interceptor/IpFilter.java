@@ -16,7 +16,7 @@ import java.util.List;
  * 在preHandle中，可以进行编码、安全控制等处理；
  在postHandle中，有机会修改ModelAndView；
  在afterCompletion中，可以根据ex是否为null判断是否发生了异常，进行日志记录
- * Created by zhangshan193 on 17/4/20.
+ * Created by zhangshan on 17/4/20.
  */
 public class IpFilter extends HandlerInterceptorAdapter {
 
